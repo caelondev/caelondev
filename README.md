@@ -2,7 +2,7 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Hello%2C+World!)](https://git.io/typing-svg)
 
-Hi, I'm caelondev. A nerdy programmer that started his journey at the age of 13
+Hi, I'm caelondev. A nerdy programmer who started his journey at the age of 13
 
 I liek
 - JavaScript (You agree, right?)
