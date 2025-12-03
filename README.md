@@ -1,37 +1,15 @@
-# 👋 Welcome — I'm **caelondev**
+# Behold...
 
-🚀 Aspiring Developer | 🎮 Game Enthusiast | 💻 Tech Explorer  
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Hello%2C+World!)](https://git.io/typing-svg)
 
----
+Hi, I'm caelondev. A nerdy programmer that started his journey at the age of 13
 
-## 🌟 About Me
-- Started my coding journey at 13, and still building everyday
-- Passionate about **programming, game development, and technology**  
-- Strong in **math, logic, and problem-solving**  
-- Values **clean, modern design** and efficient workflows  
+I liek
+- JavaScript (You agree, right?)
+- TypeScript
+- Go (it's not 'golang', npc)
 
----
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=I+use+Vim+btw)](https://git.io/typing-svg)
 
-## 💻 Tech & Tools
-- **Languages:** JavaScript (favorite), GDscript
-- **Frameworks/Engines:** Godot (Linux), discord.js, express.js
-- **Tools:** GitHub, LazyVim, Arch Linux
-- **Practices:** modular code, readable commits
-
----
-
-## 🎨 My Approach
-- ✨ Prioritizes **clarity, simplicity, and modern UI/UX**  
-- 🤝 Believes in **collaboration and teamwork**  
-- ⚡ Focused on **learning, experimenting, and building**  
-- 💡 Self-starter with a passion for **creative problem-solving**  
-
----
-
-## 📊 GitHub Stats
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=caelondev&show_icons=true&theme=tokyonight)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=caelondev&layout=compact&theme=tokyonight)  
-
----
-
-💭 *"An expert was once a beginner."*
+## Some goofy ahh stats
+[caelondev-trophy](https://github-profile-trophy.vercel.app/?username=caelondev)
