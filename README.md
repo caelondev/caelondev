@@ -2,16 +2,38 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Hello%2C+World!)](https://git.io/typing-svg)
 
-Hi, I'm caelondev. A nerdy programmer that started his journey at the age of 13
+Hi, I'm caelondev. A nerdy programmer who started his journey at the age of 13
 
 I liek
-- JavaScript (You agree, right?)
+
+- Rust
+- Go
 - TypeScript
-- Go (it's not 'golang', npc)
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=I+use+Vim+btw)](https://git.io/typing-svg)
 
-## Some goofy ahh stats
-[Failing score](https://github-readme-stats.vercel.app/api?username=caelondev&show_icons=true&theme=tokyonight)
-[Used skibidis](https://github-readme-stats.vercel.app/api/top-langs/?username=caelondev&layout=compact&theme=tokyonight)
-[caelondev-newbie-trophy](https://github-profile-trophy.vercel.app/?username=caelondev)
+# Check out my kewl projects
+
+## [Zast: Programming language](https://github.com/zast-lang/zast)
+
+Currently on hiatus bc of school, I'll immediately continue it on vacation
+
+## [TheophilusX: Multi-platform bot](https://github.com/TheophilusWorks/TheophilusX)
+
+It's a simple multi-platform bot I'm currently working on during free time so my commit board stays green lol
+
+# About this account
+
+Most repos I made on this account are either forks of another repo or just configs... most of my projects have their own designated organization I made to keep things organized
+
+## Stats spam
+
+![stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=caelondev&theme=aura_dark)
+
+![profile-details](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=caelondev&theme=aura_dark)
+
+![most-used-language-per-repo](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=caelondev&theme=aura_dark)
+
+![top-language-by-commits](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=caelondev&theme=aura_dark)
+
+![commit-count](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=caelondev&theme=aura_dark&utcOffset=8)
