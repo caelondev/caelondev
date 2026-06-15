@@ -31,7 +31,7 @@ export default function TypeCommand({
 
   return (
     <p className="command-line" style={style}>
-      <span className="user-field">guess@caelondev</span>
+      <span className="user-field">guest@caelondev</span>
       <span style={{ color: "var(--red)" }}> $ </span>
       <span ref={ref}></span>
     </p>

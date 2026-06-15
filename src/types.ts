@@ -6,4 +6,5 @@ export interface BaseProps {
 
 export type CommandContext = BaseProps & {
   promptRef: React.RefObject<CommandPromptHandle | null>;
+  args: string[];
 };

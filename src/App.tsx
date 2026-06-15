@@ -8,7 +8,7 @@ import CommandPrompt, {
   type CommandPromptHandle,
 } from "./components/terminal/CommandPrompt";
 import ClickableCommand from "./components/terminal/ClickableCommand";
-import { commands } from "./components/commands";
+import { commands, funCommands } from "./components/commands";
 import NotFound from "./components/terminal/NotFound";
 import { Stdout } from "./components/terminal/Stdout";
 
@@ -16,7 +16,11 @@ function App() {
   const promptRef = useRef<CommandPromptHandle>(null);
   const [terminalOutput, setTerminalOutput] = useState<React.ReactNode[]>([]);
 
-  const handleExecute = (command: string) => {
+  const handleExecute = (commandRaw: string) => {
+    let tokens = commandRaw.trim().split(/\s+/);
+    let command = tokens[0].toLowerCase();
+    let args = tokens.slice(1);
+
     if (!command) return;
 
     if (command === "clear") {
@@ -24,9 +28,9 @@ function App() {
       return;
     }
 
-    const cmd = commands?.[command];
+    const cmd = { ...funCommands, ...commands }?.[command];
     const out = cmd ? (
-      <p>{cmd({ promptRef })}</p>
+      <p>{cmd({ promptRef, args })}</p>
     ) : (
       <NotFound cmdName={command} promptRef={promptRef} />
     );
@@ -35,8 +39,9 @@ function App() {
       ...prev,
       <p className="command-line">
         <p key={`cmd-${prev.length}`}>
-          <span className="user-field">guess@caelondev</span>{" "}
-          <span style={{ color: "var(--red)" }}>$</span> {command}
+          <span className="user-field">guest@caelondev</span>{" "}
+          <span style={{ color: "var(--red)" }}>$ </span>
+          <span style={{ color: "var(--yellow)" }}>{commandRaw}</span>
         </p>
       </p>,
       out,

@@ -92,7 +92,7 @@ const CommandPrompt = forwardRef<CommandPromptHandle, Props>(
 
     return (
       <p className="command-line">
-        <span className="user-field">guess@caelondev</span>
+        <span className="user-field">guest@caelondev</span>
         <span style={{ color: "var(--red)" }}> $ </span>
         <span
           ref={spanRef}

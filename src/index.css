@@ -72,3 +72,23 @@ h6 {
 .user-field {
   color: var(--green);
 }
+
+.project-name {
+  color: var(--magenta);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.project-name:hover {
+  opacity: 0.7;
+}
+
+.contact-platform-link {
+  color: var(--magenta);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.command-input {
+  color: var(--yellow);
+}
