@@ -53,3 +53,22 @@ h6 {
 .description {
   color: var(--cyan);
 }
+
+.clickable-command {
+  cursor: pointer;
+  color: var(--blue);
+  text-decoration: underline dotted;
+  transition: opacity 0.15s ease;
+}
+
+.clickable-command:hover {
+  opacity: 0.7;
+}
+
+.command-line {
+  cursor: text;
+}
+
+.user-field {
+  color: var(--green);
+}

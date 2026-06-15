@@ -14,21 +14,15 @@ type Props = BaseProps & {
   speed?: number;
 };
 
-type Leaf = { text: string };
-
-function collectLeaves(node: ReactNode): Leaf[] {
-  if (typeof node === "string" || typeof node === "number") {
-    return [{ text: String(node) }];
-  }
-  if (Array.isArray(node)) {
-    return node.flatMap(collectLeaves);
-  }
+function countChars(node: ReactNode): number {
+  if (typeof node === "string" || typeof node === "number")
+    return String(node).length;
+  if (Array.isArray(node)) return node.reduce((s, c) => s + countChars(c), 0);
   if (isValidElement(node)) {
-    return Children.toArray((node.props as any).children).flatMap(
-      collectLeaves,
-    );
+    const children = Children.toArray((node.props as any).children);
+    return children.reduce((s: number, c) => s + countChars(c), 0);
   }
-  return [];
+  return 0;
 }
 
 function rebuildTree(node: ReactNode, state: { remaining: number }): ReactNode {
@@ -47,6 +41,14 @@ function rebuildTree(node: ReactNode, state: { remaining: number }): ReactNode {
   }
 
   if (isValidElement(node)) {
+    const charCount = countChars(node);
+
+    if (charCount === 0) {
+      if (state.remaining <= 0) return null;
+      state.remaining -= 1;
+      return node;
+    }
+
     const children = Children.toArray((node.props as any).children);
     const rebuilt = children.map((child) => rebuildTree(child, state));
     return cloneElement(
@@ -60,8 +62,7 @@ function rebuildTree(node: ReactNode, state: { remaining: number }): ReactNode {
 }
 
 export default function Type({ children, speed = 30, onDone }: Props) {
-  const leaves = collectLeaves(children);
-  const total = leaves.reduce((sum, l) => sum + l.text.length, 0);
+  const total = countChars(children) + countNonTextNodes(children);
   const [revealed, setRevealed] = useState(0);
 
   useEffect(() => {
@@ -74,4 +75,17 @@ export default function Type({ children, speed = 30, onDone }: Props) {
   }, [revealed, total, speed]);
 
   return <>{rebuildTree(children, { remaining: revealed })}</>;
+}
+
+function countNonTextNodes(node: ReactNode): number {
+  if (typeof node === "string" || typeof node === "number") return 0;
+  if (Array.isArray(node))
+    return node.reduce((s, c) => s + countNonTextNodes(c), 0);
+  if (isValidElement(node)) {
+    const children = Children.toArray((node.props as any).children);
+    const charCount = countChars(node);
+    if (charCount === 0) return 1;
+    return children.reduce((s: number, c) => s + countNonTextNodes(c), 0);
+  }
+  return 0;
 }

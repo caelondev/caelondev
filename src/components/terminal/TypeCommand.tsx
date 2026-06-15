@@ -8,7 +8,12 @@ interface Props {
   onDone?: () => void;
 }
 
-export default function TypeCommand({ value, speed = 30, onDone, style }: Props) {
+export default function TypeCommand({
+  value,
+  speed = 30,
+  onDone,
+  style,
+}: Props) {
   let ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
