@@ -31,11 +31,21 @@ const CommandPrompt = forwardRef<CommandPromptHandle, Props>(
       sel?.removeAllRanges();
       sel?.addRange(range);
     };
-
     useEffect(() => {
       if (autoFocus) focusEnd();
 
-      const handleClick = () => focusEnd();
+      const handleClick = (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        if (
+          target.closest(
+            "button, a, input, textarea, select, [contenteditable], [role='button'], [tabindex]",
+          )
+        ) {
+          return;
+        }
+        focusEnd();
+      };
+
       document.addEventListener("click", handleClick);
       return () => document.removeEventListener("click", handleClick);
     }, [autoFocus]);

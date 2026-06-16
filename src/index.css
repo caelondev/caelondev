@@ -9,6 +9,7 @@
   --red: #f7768e;
   --orange: #ff9e64;
   --yellow: #e0af68;
+  --hot-pink: #ff69b4;
 }
 
 html {
@@ -20,6 +21,7 @@ html {
 * {
   padding: 0;
   margin: 0;
+  font-family: monospace;
 }
 
 body {
@@ -57,8 +59,10 @@ h6 {
 .clickable-command {
   cursor: pointer;
   color: var(--blue);
-  text-decoration: underline dotted;
+  background-color: transparent;
+  border: none;
   transition: opacity 0.15s ease;
+  font-size: 1.2rem;
 }
 
 .clickable-command:hover {

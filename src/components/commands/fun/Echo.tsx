@@ -1,4 +1,4 @@
-import type { CommandContext } from "../../types";
+import type { CommandContext } from "../../../types";
 
 export default function Echo({ args }: CommandContext) {
   let msg = args.join(" ");

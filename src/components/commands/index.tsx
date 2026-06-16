@@ -5,7 +5,8 @@ import Projects from "./Projects";
 import { Github } from "./Github";
 import Contact from "./Contact";
 import Restart from "./Restart";
-import Echo from "./Echo";
+import Echo from "./fun/Echo";
+import TicTacToe from "./fun/TicTacToe/TicTacToe";
 
 export const commands: Record<
   string,
@@ -27,4 +28,5 @@ export const funCommands: Record<
   (ctx: CommandContext) => React.ReactNode
 > = {
   echo: (ctx) => <Echo promptRef={ctx.promptRef} args={ctx.args} />,
+  tictactoe: (ctx) => <TicTacToe promptRef={ctx.promptRef} args={ctx.args} />,
 };

@@ -22,15 +22,15 @@ export default function ClickableCommand({ command, promptRef }: Props) {
   };
 
   return (
-    <span style={{ color: "var(--foreground)" }}>
+    <span style={{ color: "var(--foreground)", backgroundColor: "var(--background)" }}>
       {"["}
-      <code
+      <button
         className="clickable-command"
         onClick={handleClick}
         title="Click to run"
       >
         {command}
-      </code>
+      </button>
       {"]"}
     </span>
   );
