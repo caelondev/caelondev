@@ -89,7 +89,7 @@ export default function Projects({ args }: CommandContext) {
 
       <p style={{ color: "var(--comment)" }}>
         tip: type{" "}
-        <span style={{ color: "var(--blue)" }}>project &lt;name&gt;</span> for
+        <span style={{ color: "var(--blue)" }}>projects &lt;name&gt;</span> for
         more details.
       </p>
     </>
