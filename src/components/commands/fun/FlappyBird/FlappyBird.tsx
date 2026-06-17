@@ -18,9 +18,10 @@ const FRAME_INTERVAL = 1000 / FPS;
 const TUBE_GAP = 7;
 const TUBE_WIDTH = 2;
 
-const TUBE_SPAWN_INTERVAL = 1500;
+const TUBE_SPAWN_INTERVAL = 1800;
 const TUBE_MIN_DISTANCE = 14;
-const TUBE_SPEED = 0.6;
+
+const TUBE_SPEED_FACTOR = 0.03;
 
 export default function FlappyBird({}: CommandContext) {
   const preRef = useRef<HTMLPreElement>(null);
@@ -43,6 +44,8 @@ export default function FlappyBird({}: CommandContext) {
     document.body.removeChild(measure);
 
     const COLS = Math.floor(pre.clientWidth / charWidth);
+
+    const TUBE_SPEED = Math.max(0.3, COLS * TUBE_SPEED_FACTOR);
 
     const createGrid = () =>
       Array.from({ length: ROWS }, () => Array(COLS).fill(EMPTY));
@@ -82,7 +85,6 @@ export default function FlappyBird({}: CommandContext) {
       const gapY = CaelonUtils.randomRange(2, ROWS - TUBE_GAP - 2, false);
       const x = COLS - 1;
 
-      // distance from the spawn edge to the most recently spawned tube
       const last = tubes[tubes.length - 1];
       if (last && x - last.x < TUBE_MIN_DISTANCE) return;
 
@@ -109,13 +111,11 @@ export default function FlappyBird({}: CommandContext) {
         const col = Math.floor(tube.x);
         const colEnd = col + TUBE_WIDTH - 1;
 
-        // scoring: bird has just passed this tube's trailing column
         if (!tube.passed && colEnd < bird.x) {
           tube.passed = true;
           score += 1;
         }
 
-        // collision check if the bird's column overlaps the tube's width
         if (bird.x >= col && bird.x <= colEnd) {
           const inGap = bird.y >= tube.gapY && bird.y < tube.gapY + TUBE_GAP;
           if (!inGap) {
