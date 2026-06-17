@@ -50,10 +50,10 @@ function App() {
 
   return (
     <Sequence>
-      <TypeCommand value="start" speed={150} style={{ margin: "0" }} />
+      <TypeCommand value="start" speed={50} style={{ margin: "0" }} />
       <Caelondev />
 
-      <Type speed={30}>
+      <Type speed={5}>
         <p className="description">
           Hello, I'm Jericho, also known as caelondev.
         </p>

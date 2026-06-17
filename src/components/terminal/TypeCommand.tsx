@@ -10,7 +10,7 @@ interface Props {
 
 export default function TypeCommand({
   value,
-  speed = 30,
+  speed = 15,
   onDone,
   style,
 }: Props) {

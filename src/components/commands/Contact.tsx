@@ -11,7 +11,7 @@ const contacts = [
   {
     platform: "youtube",
     display: "youtube.com/caelondev",
-    href: "https://youtube.com/caelondev",
+    href: "https://youtube.com/@caelondev",
   },
   {
     platform: "github",

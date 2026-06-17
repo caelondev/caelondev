@@ -36,13 +36,16 @@ const CommandPrompt = forwardRef<CommandPromptHandle, Props>(
 
       const handleClick = (e: MouseEvent) => {
         const target = e.target as HTMLElement;
+
         if (
           target.closest(
             "button, a, input, textarea, select, [contenteditable], [role='button'], [tabindex]",
-          )
+          ) ||
+          target.closest(".no-keyboard")
         ) {
           return;
         }
+
         focusEnd();
       };
 
