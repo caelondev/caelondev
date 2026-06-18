@@ -1,0 +1,30 @@
+.caelon_cat {
+  margin-top: 10px;
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 10px solid var(--accent);
+  box-shadow:
+    0 0 0 15px var(--muted),
+    0 0 0 17px var(--accent2);
+}
+
+.main_card {
+  background: var(--bg-card3);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.headline {
+  margin-top: 20px;
+}
+
+.description {
+  font-size: 1rem;
+}
