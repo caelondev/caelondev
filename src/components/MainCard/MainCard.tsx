@@ -10,10 +10,7 @@ export default function MainCard() {
       />
       <h1 className={styles.headline}>I am Jericho. aka caelondev</h1>
       <p className={styles.description}>
-        a back-end developer and a low-level enthusiast
-      </p>
-      <p className={styles.description_blend}>
-        I have an unhealthy amount of rust language addiction
+        a back-end developer and a low-level systems enthusiast
       </p>
     </div>
   );

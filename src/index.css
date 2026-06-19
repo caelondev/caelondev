@@ -14,6 +14,18 @@
   --muted: #c9a99a;
   --border: #e0c8bc;
 
+  --terminal-bg: #2a1208;
+  --terminal-bg-deep: #1c0c05;
+  --terminal-bg-card: #3a1c10;
+  --terminal-bg-card2: #4a2616;
+  --terminal-fg: #f5ece4;
+  --terminal-fg-muted: #c9a99a;
+  --terminal-primary: #e8a87c;
+  --terminal-accent: #c45538;
+  --terminal-accent2: #e8c4b0;
+  --terminal-cursor: #b85a3a;
+  --terminal-border: #5a3422;
+
   --font-display: "Fraunces", serif;
   --font-mono: "Space Mono", monospace;
 
@@ -24,6 +36,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-text-size-adjust: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -59,6 +72,7 @@ h3 {
 }
 
 p,
+pre,
 h1,
 h2,
 h3,
@@ -94,3 +108,7 @@ a {
   text-decoration: none;
   align-items: center;
 }
+
+.caelondev-figlet {
+  font-size: 0.3rem;
+} 
