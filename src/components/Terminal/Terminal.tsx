@@ -7,6 +7,7 @@ import {
 } from "react";
 import styles from "./Terminal.module.css";
 import CaelondevFiglet from "../CaelondevFiglet.tsx";
+import ClickableCommand from "./ClickableCommand.tsx";
 
 const PROMPT = "caelondev@portfolio:~$";
 
@@ -82,6 +83,11 @@ export default function Terminal() {
     }
   }, [bootLines, history]);
 
+  const submitCommand = (command: string) => {
+    setHistory((prev) => [...prev, { command }]);
+    if (inputRef.current) inputRef.current.textContent = "";
+  };
+
   const handleScreenClick = (e: MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
     if (target.closest("[data-no-focus]")) return;
@@ -92,8 +98,7 @@ export default function Terminal() {
     if (e.key === "Enter") {
       e.preventDefault();
       const command = inputRef.current?.textContent ?? "";
-      setHistory((prev) => [...prev, { command }]);
-      if (inputRef.current) inputRef.current.textContent = "";
+      submitCommand(command);
     }
   };
 
@@ -128,7 +133,13 @@ export default function Terminal() {
           <>
             <CaelondevFiglet />
             <p className={styles["terminal-description"]}>
-              Type 'help' to navigate the terminal
+              Type{" "}
+              <ClickableCommand
+                command="help"
+                inputRef={inputRef}
+                onSubmit={submitCommand}
+              />{" "}
+              to navigate the terminal
             </p>
             {history.map((entry, i) => (
               <div className={styles.line} key={i}>

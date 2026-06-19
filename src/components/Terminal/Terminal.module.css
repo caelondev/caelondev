@@ -105,3 +105,12 @@
   margin-bottom: 10px;
   color: var(--terminal-muted);
 }
+
+.clickable-command {
+  cursor: pointer;
+  color: var(--terminal-primary);
+}
+
+.clickable-command:hover {
+  color: var(--terminal-accent);
+}
