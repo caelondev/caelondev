@@ -1,3 +1,5 @@
+import AboutMe from "./components/AboutMe/AboutMe";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MainCard from "./components/MainCard/MainCard";
 
@@ -7,7 +9,9 @@ function App() {
       <Header />
       <div className="contents">
         <MainCard />
+        <AboutMe />
       </div>
+      <Footer />
     </>
   );
 }

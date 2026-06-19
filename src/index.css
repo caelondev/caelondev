@@ -24,9 +24,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
-body {
+input,
+textarea,
+.selectable {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+:root {
   min-height: 100vh;
   background-color: var(--bg);
   overflow-x: hidden;
@@ -44,7 +55,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
+  font-family: var(--primary);
 }
 
 p,
@@ -70,6 +81,11 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.main-footer {
+  font-size: 0.6rem;
+  text-align: center;
 }
 
 a {
