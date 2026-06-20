@@ -15,6 +15,11 @@
   box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
 }
 
+.card {
+  background: var(--bg-card2);
+  width: 100%;
+}
+
 .titlebar {
   display: flex;
   align-items: center;
@@ -62,6 +67,14 @@
 .line {
   white-space: pre-wrap;
   word-break: break-word;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.input-row {
+  display: flex;
+  align-items: baseline;
+  padding-top: 10px;
 }
 
 .prompt {
@@ -102,7 +115,6 @@
 }
 
 .terminal-description {
-  margin-bottom: 10px;
   color: var(--terminal-muted);
 }
 

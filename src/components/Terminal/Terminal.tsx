@@ -8,6 +8,8 @@ import {
 import styles from "./Terminal.module.css";
 import CaelondevFiglet from "../CaelondevFiglet.tsx";
 import ClickableCommand from "./ClickableCommand.tsx";
+import { TerminalContext } from "./TerminalContext.tsx";
+import { commands } from "../commands";
 
 const PROMPT = "caelondev@portfolio:~$";
 
@@ -46,7 +48,8 @@ const STATUS_CLASS: Record<Exclude<BootStatus, null>, string> = {
 };
 
 interface HistoryLine {
-  command: string;
+  command: string[];
+  output: React.ReactNode;
 }
 
 export default function Terminal() {
@@ -55,6 +58,8 @@ export default function Terminal() {
   const [history, setHistory] = useState<HistoryLine[]>([]);
   const [bootLines, setBootLines] = useState<BootLine[]>([]);
   const [booting, setBooting] = useState(true);
+  const [locked, setLocked] = useState(false);
+  const [bootCycle, setBootCycle] = useState(0);
 
   useEffect(() => {
     const timeouts: ReturnType<typeof setTimeout>[] = [];
@@ -75,7 +80,7 @@ export default function Terminal() {
     timeouts.push(finish);
 
     return () => timeouts.forEach(clearTimeout);
-  }, []);
+  }, [bootCycle]);
 
   useEffect(() => {
     if (screenRef.current) {
@@ -83,9 +88,28 @@ export default function Terminal() {
     }
   }, [bootLines, history]);
 
-  const submitCommand = (command: string) => {
-    setHistory((prev) => [...prev, { command }]);
+  const runCommand = (name: string, args: string[]): React.ReactNode => {
+    const entry = commands[name];
+    if (!entry) {
+      return (
+        <p className={styles["command-error"]}>command not found: {name}</p>
+      );
+    }
+    return entry.component(args);
+  };
+
+  const submitCommand = (...command: string[]) => {
+    const [name, ...args] = command;
+
     if (inputRef.current) inputRef.current.textContent = "";
+
+    if (name === "clear") {
+      setHistory([]);
+      return;
+    }
+
+    const output = runCommand(name, args);
+    setHistory((prev) => [...prev, { command, output }]);
   };
 
   const handleScreenClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -97,75 +121,103 @@ export default function Terminal() {
   const handleKeyDown = (e: KeyboardEvent<HTMLSpanElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      const command = inputRef.current?.textContent ?? "";
-      submitCommand(command);
+      const raw = inputRef.current?.textContent ?? "";
+      const tokens = raw.trim().split(/\s+/).filter(Boolean);
+      if (tokens.length === 0) return;
+      submitCommand(...tokens);
     }
   };
 
+  const lockInput = () => {
+    inputRef.current?.blur();
+    setLocked(true);
+  };
+
+  const unlockInput = () => setLocked(false);
+
+  const reboot = () => {
+    setHistory([]);
+    setBootLines([]);
+    setLocked(false);
+    setBooting(true);
+    setBootCycle((c) => c + 1);
+  };
+
   return (
-    <div className={styles.terminal}>
-      <div className={styles.titlebar}>
-        <span className={styles.dot} />
-        <span className={styles.dot} />
-        <span className={styles.dot} />
-        <span className={styles["titlebar-label"]}>terminal</span>
-      </div>
+    <TerminalContext.Provider
+      value={{
+        inputRef,
+        submitCommand,
+        lockInput,
+        unlockInput,
+        locked,
+        reboot,
+      }}
+    >
+      <div className={styles.card}>
+        <div className={styles.terminal}>
+          <div className={styles.titlebar}>
+            <span className={styles.dot} />
+            <span className={styles.dot} />
+            <span className={styles.dot} />
+            <span className={styles["titlebar-label"]}>terminal</span>
+          </div>
 
-      <div
-        className={styles.screen}
-        ref={screenRef}
-        onClick={handleScreenClick}
-      >
-        {booting ? (
-          bootLines.map((line, i) => (
-            <div className={styles["boot-line"]} key={i}>
-              {line.status && (
-                <span
-                  className={`${styles.status} ${STATUS_CLASS[line.status]}`}
-                >
-                  {STATUS_LABEL[line.status]}
-                </span>
-              )}
-              <span className={styles["boot-text"]}>{line.text}</span>
-            </div>
-          ))
-        ) : (
-          <>
-            <CaelondevFiglet />
-            <p className={styles["terminal-description"]}>
-              Type{" "}
-              <ClickableCommand
-                command="help"
-                inputRef={inputRef}
-                onSubmit={submitCommand}
-              />{" "}
-              to navigate the terminal
-            </p>
-            {history.map((entry, i) => (
-              <div className={styles.line} key={i}>
-                <span className={styles.prompt}>{PROMPT}</span>
-                {entry.command}
-              </div>
-            ))}
+          <div
+            className={styles.screen}
+            ref={screenRef}
+            onClick={handleScreenClick}
+          >
+            {booting ? (
+              bootLines.map((line, i) => (
+                <div className={styles["boot-line"]} key={i}>
+                  {line.status && (
+                    <span
+                      className={`${styles.status} ${STATUS_CLASS[line.status]}`}
+                    >
+                      {STATUS_LABEL[line.status]}
+                    </span>
+                  )}
+                  <span className={styles["boot-text"]}>{line.text}</span>
+                </div>
+              ))
+            ) : (
+              <>
+                <CaelondevFiglet />
+                <p className={styles["terminal-description"]}>
+                  Type <ClickableCommand command="help" /> to navigate the
+                  terminal
+                </p>
+                {history.map((entry, i) => (
+                  <div className={styles["history-entry"]} key={i}>
+                    <div className={styles.line}>
+                      <span className={styles.prompt}>{PROMPT}</span>
+                      {entry.command.join(" ")}
+                    </div>
+                    {entry.output}
+                  </div>
+                ))}
 
-            <div className={styles.line}>
-              <span className={styles.prompt}>{PROMPT}</span>
-              <span
-                ref={inputRef}
-                className={styles.input}
-                contentEditable
-                suppressContentEditableWarning
-                spellCheck={false}
-                autoCorrect="off"
-                autoCapitalize="off"
-                role="textbox"
-                aria-label="terminal input"
-                onKeyDown={handleKeyDown}
-              />
-            </div>
-          </>
-        )}
+                <div className={`${styles.line} ${styles["input-line"]}`}>
+                  <span className={styles.prompt}>{PROMPT}</span>
+                  <span
+                    ref={inputRef}
+                    className={styles.input}
+                    contentEditable={!locked}
+                    suppressContentEditableWarning
+                    spellCheck={false}
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    role="textbox"
+                    aria-label="terminal input"
+                    onKeyDown={handleKeyDown}
+                  />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </TerminalContext.Provider>
   );
 }

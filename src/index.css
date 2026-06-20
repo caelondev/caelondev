@@ -4,7 +4,7 @@
   --bg: #ede0d4;
   --bg-deep: #e3d4c6;
   --bg-card: #f5ece4;
-  --bg-card2: #e8d8cc;
+  --bg-card2: #e0d0c2;
   --bg-card3: #d4c0b0;
   --fg: #2a1208;
   --fg-muted: #8a5a4a;
@@ -111,4 +111,4 @@ a {
 
 .caelondev-figlet {
   font-size: 0.3rem;
-} 
+}

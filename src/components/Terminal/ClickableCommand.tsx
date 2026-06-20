@@ -1,5 +1,5 @@
-import { useState, type RefObject } from "react";
 import styles from "./Terminal.module.css";
+import { useTerminal } from "./TerminalContext.tsx";
 
 const AUTO_TYPE_SPEED = 80;
 const SUBMIT_DELAY = 200;
@@ -7,22 +7,19 @@ const SUBMIT_DELAY = 200;
 interface ClickableCommandProps {
   command: string;
   label?: string;
-  inputRef: RefObject<HTMLSpanElement | null>;
-  onSubmit: (command: string) => void;
 }
 
 export default function ClickableCommand({
   command,
   label,
-  inputRef,
-  onSubmit,
 }: ClickableCommandProps) {
-  const [typing, setTyping] = useState(false);
+  const { inputRef, submitCommand, locked, lockInput, unlockInput } =
+    useTerminal();
 
   const handleClick = () => {
-    if (typing) return;
-    setTyping(true);
-    inputRef.current?.focus();
+    if (locked) return;
+    lockInput();
+
     if (inputRef.current) inputRef.current.textContent = "";
 
     let i = 0;
@@ -34,8 +31,8 @@ export default function ClickableCommand({
       if (i >= command.length) {
         clearInterval(typeInterval);
         setTimeout(() => {
-          onSubmit(command);
-          setTyping(false);
+          submitCommand(...command.trim().split(/\s+/).filter(Boolean));
+          unlockInput();
         }, SUBMIT_DELAY);
       }
     }, AUTO_TYPE_SPEED);
