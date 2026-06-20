@@ -62,7 +62,7 @@ textarea,
   flex-direction: column;
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
 }
 
 h1,

@@ -1,5 +1,5 @@
 import { Type } from "../helpers/Type";
-import styles from "./AboutMe.module.css"
+import styles from "./AboutMe.module.css";
 
 export default function AboutMe() {
   return (
@@ -11,7 +11,7 @@ export default function AboutMe() {
         my coding journey at 13 out of pure boredom, then never really stopped.
       </p>
 
-      <p>
+      <p className={styles.typing_line}>
         I build small, weird, and useful things
         <Type
           strings={[

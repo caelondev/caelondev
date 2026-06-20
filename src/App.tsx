@@ -2,6 +2,7 @@ import AboutMe from "./components/AboutMe/AboutMe";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MainCard from "./components/MainCard/MainCard";
+import Skills from "./components/Skills/Skills";
 import Terminal from "./components/Terminal/Terminal";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <MainCard />
         <AboutMe />
         <Terminal />
+        <Skills />
       </div>
       <Footer />
     </>
