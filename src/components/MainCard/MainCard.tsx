@@ -1,8 +1,9 @@
+import type { Card } from "../../types";
 import styles from "./MainCard.module.css";
 
-export default function MainCard() {
+export default function MainCard({ id }: Card) {
   return (
-    <div className={styles.main_card}>
+    <div className={styles.main_card} id={id}>
       <img
         className={styles.caelon_cat}
         src="/caelon-cat.jpg"

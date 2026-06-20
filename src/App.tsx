@@ -1,4 +1,5 @@
 import AboutMe from "./components/AboutMe/AboutMe";
+import CoolPeople from "./components/CoolPeople/CoolPeople";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MainCard from "./components/MainCard/MainCard";
@@ -10,12 +11,13 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main">
         <MainCard />
-        <AboutMe />
-        <Terminal />
-        <Skills />
-        <Projects />
+        <AboutMe id="about" />
+        <Terminal id="terminal" />
+        <Skills id="skills" />
+        <Projects id="projects" />
+        <CoolPeople id="cool-people" />
       </main>
       <Footer />
     </>

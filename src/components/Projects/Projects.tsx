@@ -1,3 +1,4 @@
+import type { Card } from "../../types";
 import styles from "./Projects.module.css";
 
 interface Project {
@@ -49,9 +50,9 @@ const PROJECTS: Project[] = [
   }
 ];
 
-export default function Projects() {
+export default function Projects({ id }: Card) {
   return (
-    <div className={styles.projects}>
+    <div className={styles.projects} id={id}>
       <div className={styles.inner}>
         <h1 className={styles.heading}>Projects:</h1>
         <div className={styles.grid}>

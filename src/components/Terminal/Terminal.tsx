@@ -10,6 +10,7 @@ import CaelondevFiglet from "../CaelondevFiglet.tsx";
 import ClickableCommand from "./ClickableCommand.tsx";
 import { TerminalContext } from "./TerminalContext.tsx";
 import { commands } from "../commands";
+import type { Card } from "../../types.ts";
 
 const PROMPT = "caelondev@portfolio:~$";
 
@@ -52,7 +53,7 @@ interface HistoryLine {
   output: React.ReactNode;
 }
 
-export default function Terminal() {
+export default function Terminal({ id }: Card) {
   const inputRef = useRef<HTMLSpanElement>(null);
   const screenRef = useRef<HTMLDivElement>(null);
   const [history, setHistory] = useState<HistoryLine[]>([]);
@@ -95,7 +96,7 @@ export default function Terminal() {
         <p className={styles["command-error"]}>command not found: {name}</p>
       );
     }
-    return entry.component(args);
+    return entry.component({ args });
   };
 
   const submitCommand = (...command: string[]) => {
@@ -154,7 +155,7 @@ export default function Terminal() {
         reboot,
       }}
     >
-      <div className={styles.card}>
+      <div className={styles.card} id={id}>
         <div className={styles.terminal}>
           <div className={styles.titlebar}>
             <span className={styles.dot} />

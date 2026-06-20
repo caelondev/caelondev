@@ -1,3 +1,4 @@
+import type { Card } from "../../types";
 import styles from "./Skills.module.css";
 
 interface SkillCategory {
@@ -51,9 +52,9 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   },
 ];
 
-export default function Skills() {
+export default function Skills({ id }: Card) {
   return (
-    <section className={styles.skills}>
+    <section className={styles.skills} id={id}>
       <h1 className={styles.heading}>Skills:</h1>
       <div className={styles.grid}>
         {SKILL_CATEGORIES.map((cat) => (

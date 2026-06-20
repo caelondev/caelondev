@@ -1,9 +1,10 @@
+import type { Card } from "../../types";
 import { Type } from "../helpers/Type";
 import styles from "./AboutMe.module.css";
 
-export default function AboutMe() {
+export default function AboutMe({ id }: Card) {
   return (
-    <div className={styles.about_me}>
+    <div className={styles.about_me} id={id}>
       <h1>About Me:</h1>
 
       <p>
