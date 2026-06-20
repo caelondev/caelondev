@@ -1,30 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
-  --bg: #ede0d4;
-  --bg-deep: #e3d4c6;
-  --bg-card: #f5ece4;
-  --bg-card2: #e0d0c2;
-  --bg-card3: #d4c0b0;
-  --fg: #2a1208;
-  --fg-muted: #8a5a4a;
-  --primary: #b85a3a;
+  --bg: #0d0806;
+  --bg-deep: #060302;
+  --bg-card: #181009;
+  --bg-card2: #221710;
+  --bg-card3: #2c1f15;
+  --fg: #f0e4d8;
+  --fg-muted: #a8836f;
+  --primary: #e8743f;
   --accent: #c45538;
   --accent2: #e8c4b0;
-  --muted: #c9a99a;
-  --border: #e0c8bc;
+  --muted: #8a6a58;
+  --border: #2c1f15;
 
-  --terminal-bg: #2a1208;
-  --terminal-bg-deep: #1c0c05;
-  --terminal-bg-card: #3a1c10;
-  --terminal-bg-card2: #4a2616;
-  --terminal-fg: #f5ece4;
-  --terminal-fg-muted: #c9a99a;
+  --terminal-bg: #0d0806;
+  --terminal-bg-deep: #060302;
+  --terminal-bg-card: #181009;
+  --terminal-bg-card2: #221710;
+  --terminal-fg: #f0e4d8;
+  --terminal-fg-muted: #a8836f;
   --terminal-primary: #e8a87c;
   --terminal-accent: #c45538;
   --terminal-accent2: #e8c4b0;
   --terminal-cursor: #b85a3a;
-  --terminal-border: #5a3422;
+  --terminal-border: #2c1f15;
+
+  --terminal-ok: #c98a5e;
+  --terminal-warn: #d9a05b;
+  --terminal-fail: #b8412e;
 
   --font-display: "Fraunces", serif;
   --font-mono: "Space Mono", monospace;
@@ -86,11 +90,11 @@ h6 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgb(227 212 198 / 50%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 10px 30px;
   font-size: 1.8rem;
+  background: rgb(13 8 6 / 50%);
   color: var(--primary);
   display: flex;
   justify-content: space-between;

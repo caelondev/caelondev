@@ -71,8 +71,8 @@
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--fg);
-  background: var(--accent2);
-  border: 1px solid var(--bg-card3);
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 4px 8px;
 }
