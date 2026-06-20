@@ -12,15 +12,7 @@ I liek
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=I+use+Vim+btw)](https://git.io/typing-svg)
 
-# Check out my kewl projects
-
-## [Zast: Programming language](https://github.com/zast-lang/zast)
-
-Currently on hiatus bc of school, I'll immediately continue it on vacation
-
-## [TheophilusX: Multi-platform bot](https://github.com/TheophilusWorks/TheophilusX)
-
-It's a simple multi-platform bot I'm currently working on during free time so my commit board stays green lol
+More about me: https://caelondev.is-a.dev/
 
 # About this account
 
