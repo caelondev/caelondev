@@ -74,3 +74,36 @@
   border-color: var(--terminal-primary);
   color: var(--terminal-primary);
 }
+
+.username {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  margin-bottom: 0.5rem;
+}
+
+.cta {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--fg-muted);
+  margin-top: 2rem;
+}
+
+.discordButton {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--terminal-primary);
+  background: var(--bg-card3);
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  margin-left: 0.15rem;
+}
+
+.discordButton:hover {
+  border-color: var(--terminal-primary);
+  background: var(--bg-card2);
+}

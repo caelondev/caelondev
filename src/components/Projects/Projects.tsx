@@ -19,8 +19,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Conduit",
-    description:
-      "An unoffial FCA TypeScript wrapper for TypeScript support",
+    description: "An unoffial FCA TypeScript wrapper for TypeScript support",
     stack: ["TypeScript"],
     link: "https://github.com/TheophilusWorks/conduit",
     status: "active",
@@ -43,11 +42,12 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Silver",
-    description: "A simple node-based text formatter. mostly used for Discord bots messages but can also be used anywhere",
+    description:
+      "A simple node-based text formatter. mostly used for Discord bots messages but can also be used anywhere",
     stack: ["TypeScript"],
     link: "https://github.com/TheophilusWorks/silver",
     status: "inactive",
-  }
+  },
 ];
 
 export default function Projects({ id }: Card) {
@@ -62,7 +62,7 @@ export default function Projects({ id }: Card) {
                 <h3 className={styles.cardTitle}>{p.name}</h3>
                 {p.status && (
                   <span className={styles[`status_${p.status}`]}>
-                    {p.status === "active" ? "[ OK ]" : "[ ARCHIVED ]"}
+                    {formatStatus(p.status)}
                   </span>
                 )}
               </div>
@@ -90,4 +90,8 @@ export default function Projects({ id }: Card) {
       </div>
     </div>
   );
+}
+
+function formatStatus(status: string) {
+  return `[ ${status.toUpperCase()} ]`;
 }
