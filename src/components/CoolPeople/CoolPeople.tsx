@@ -38,6 +38,18 @@ const COOL_PEOPLE_LIST: CoolPerson[] = [
     description: "He's addicted to 'Soos The Huehue' he said.",
     links: ["https://github.com/YannLePigeon"],
   },
+  {
+    name: "ANW",
+    username: "anormalwintrovert",
+    description: "He made his own programming language called 'Lunite'",
+    links: ["https://anw.is-a.dev"],
+  },
+  {
+    name: "Chimera",
+    username: "gamingchimera",
+    description: "His portfolio looks cool",
+    links: ["https://chimera.is-a.dev"],
+  },
 ];
 
 const DISCORD_USER_ID = "1264839050427367570";
