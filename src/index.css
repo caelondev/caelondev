@@ -60,7 +60,7 @@ textarea,
   overflow-x: hidden;
 }
 
-.contents {
+main {
   display: flex;
   align-items: center;
   flex-direction: column;
