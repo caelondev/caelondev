@@ -6,7 +6,7 @@ export default function MainCard({ id }: Card) {
     <div className={styles.main_card} id={id}>
       <img
         className={styles.caelon_cat}
-        src="/caelondev/caelon-cat.jpg"
+        src="/caelondev/caelon-cat.png"
         alt="caelon cat profile picture"
       />
       <h1 className={styles.headline}>I am Jericho. aka caelondev</h1>
