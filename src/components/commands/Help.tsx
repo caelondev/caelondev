@@ -20,7 +20,7 @@ export default function Help({ args }: CommandMetadata) {
       );
     }
 
-    let details = Array.isArray(cmd.helpDetails) ? cmd.helpDetails : [];
+    let details = Array.isArray(cmd.helpDetails) ? cmd.helpDetails : [cmd.helpDetails];
 
     return (
       <>
@@ -28,8 +28,8 @@ export default function Help({ args }: CommandMetadata) {
           syntax: {cmdName} {cmd.arguments}
         </p>
         <p>
-          {details.map((d) => (
-            <p>{d}</p>
+          {details.map((d, i) => (
+            <p key={i}>{d}</p>
           ))}
         </p>
         <></>
