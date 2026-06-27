@@ -16,17 +16,14 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Backend",
     items: ["Node.js", "MongoDB", "Mongoose", "REST"],
-    note: "Built bots and backend projects with modular architectures.",
   },
   {
     title: "Game Development",
     items: ["Godot", "Scene Trees", "Signals"],
-    note: "Tinkering with small game systems and mechanics on the side.",
   },
   {
     title: "Low-Level & Systems",
     items: ["Virtual Machines", "Parsers", "LLVM"],
-    note: "Digging into how interpreters and compilers actually work under the hood.",
   },
   {
     title: "Tooling",
@@ -39,6 +36,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       "Railway",
       "Render",
     ],
+    note: "I use Vim btw.",
   },
   {
     title: "Interests",
@@ -48,7 +46,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Currently Exploring",
     items: ["LLVM IR", "Type Systems", "Encoders & Decoders"],
-    note: "Always chasing the next rabbit hole.",
+    note: "Because, why not?",
   },
 ];
 
