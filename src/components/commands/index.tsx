@@ -5,8 +5,9 @@ import Cd from "./Cd";
 import Ls from "./Ls";
 import type { CommandMetadata } from "../../types";
 import TicTacToe from "./TicTacToe";
+import Bf from "./Bf";
 
-export type Categories = "info" | "utils" | "fun";
+export type Categories = "info" | "utils" | "fun" | "cool";
 
 interface Command {
   category: Categories;
@@ -60,6 +61,13 @@ export const commands: Record<string, Command> = {
     component: (metadata: CommandMetadata) => (
       <TicTacToe args={metadata.args} />
     ),
+  },
+
+  bf: {
+    category: "cool",
+    arguments: "",
+    helpDetails: "A Brainf*ck interpreter written in Rust, compiled to WASM",
+    component: () => <Bf />,
   },
 };
 

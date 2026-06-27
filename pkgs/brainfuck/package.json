@@ -1,0 +1,15 @@
+{
+  "name": "bf-rust",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "bf_rust_bg.wasm",
+    "bf_rust.js",
+    "bf_rust.d.ts"
+  ],
+  "main": "bf_rust.js",
+  "types": "bf_rust.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

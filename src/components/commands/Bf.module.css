@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--terminal-primary);
+  opacity: 0.8;
+}
+
+.label::before {
+  content: "> ";
+}
+
+.textarea,
+.input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  background: var(--terminal-bg-card);
+  color: var(--terminal-fg);
+  border: 1px solid var(--terminal-border);
+  border-radius: 4px;
+}
+
+.textarea {
+  min-height: 100px;
+  max-height: 160px;
+  resize: vertical;
+  padding: 6px 8px;
+}
+
+.input {
+  padding: 5px 8px;
+}
+
+.textarea:focus,
+.input:focus {
+  outline: none;
+  border-color: var(--terminal-accent);
+}
+
+.button {
+  align-self: flex-start;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-family: inherit;
+  background: transparent;
+  color: var(--terminal-accent);
+  border: 1px solid var(--terminal-accent);
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.button:hover {
+  background: var(--terminal-accent);
+  color: var(--terminal-bg);
+}
+
+.button:active {
+  background: var(--terminal-cursor);
+  border-color: var(--terminal-cursor);
+}
+
+.output {
+  min-height: 60px;
+  max-height: 160px;
+  margin: 0;
+  padding: 6px 8px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--terminal-fg-muted);
+  border: 1px dashed var(--terminal-border);
+  border-radius: 4px;
+}
